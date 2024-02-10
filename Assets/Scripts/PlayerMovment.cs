@@ -7,9 +7,12 @@ public class PlayerMovment : MonoBehaviour
 
     [SerializeField] int movementSpeed = 5;
     [SerializeField] Rigidbody2D playerRigidbody;
-    [SerializeField] Transform weaponsArm;
+    //[SerializeField] Transform arrowAngle;
+    [SerializeField] GameObject arrow;
+    [SerializeField] Transform arrowPoint;
 
     private Vector2 movementInput;
+    private float rollingInput;
     private Camera mainCamera;
     private Animator playerAnimator;
 
@@ -23,9 +26,14 @@ public class PlayerMovment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         movementInput.x = Input.GetAxisRaw("Horizontal");
         movementInput.y = Input.GetAxisRaw("Vertical");
 
+        rollingInput = Input.GetAxisRaw("Roll");
+
+
+        movementInput.Normalize();
         playerRigidbody.velocity = movementInput * movementSpeed;
 
         Vector3 mousePosition = Input.mousePosition;
@@ -34,9 +42,9 @@ public class PlayerMovment : MonoBehaviour
         Vector2 offset = new Vector2(mousePosition.x - playerPosition.x, mousePosition.y - playerPosition.y);
         float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
 
-        //weaponsArm.rotation = Quaternion.Euler(0,0,angle);
+        //arrowAngle.rotation = Quaternion.Euler(0, 0, angle);
 
-        if(mousePosition.x < playerPosition.x)
+        if (mousePosition.x < playerPosition.x)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
@@ -53,6 +61,21 @@ public class PlayerMovment : MonoBehaviour
         {
             playerAnimator.SetBool("isRunning", false);
 
+        }
+
+        if( rollingInput != 0f)
+        {
+            Debug.Log(11);
+            playerAnimator.SetBool("isRolling", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("isRolling", false);
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            Object.Instantiate(arrow,arrowPoint.position, Quaternion.Euler(0, 0, angle));
         }
 
 
