@@ -36,9 +36,7 @@ public class PlayerArrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name != "Player" && collision.name != "Player Arrows") {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
     public void SetDistanceToLive(float distance)

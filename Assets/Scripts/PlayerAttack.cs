@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     float bowCharge;
 
     private bool canFire = true;
-    private float attackSpeed = 30;
+    [SerializeField] float attackSpeed = 30;
 
     // Start is called before the first frame update
     void Start()

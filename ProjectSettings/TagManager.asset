@@ -8,10 +8,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerArrows
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -44,9 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 2425472643
     locked: 0
-  - name: Arrows
-    uniqueID: 2497131367
-    locked: 0
   - name: Player
     uniqueID: 2970213247
+    locked: 0
+  - name: Arrows
+    uniqueID: 2497131367
     locked: 0
