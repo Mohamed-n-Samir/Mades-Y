@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowSpeed: 30
+  arrowCollideEffectPrefab: {fileID: 8313027847399112052, guid: 5591a8d22a14514469385e0e2f7835dd, type: 3}
 --- !u!50 &7198150845847107394
 Rigidbody2D:
   serializedVersion: 4

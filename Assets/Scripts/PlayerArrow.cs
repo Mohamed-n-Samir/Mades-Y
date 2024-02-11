@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class PlayerArrow : MonoBehaviour
     private float distanceToLive = 0;
     private Rigidbody2D arrowRB;
     private Vector3 initPosition;
+    [SerializeField] GameObject arrowCollideEffectPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,8 @@ public class PlayerArrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        float angle = Utility.AngleTowardsMouse(transform.position);
+        Instantiate(arrowCollideEffectPrefab, transform.position, Quaternion.Euler(0, 0, angle));
         Destroy(gameObject);
     }
 
