@@ -33,13 +33,13 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(PlayerToChase.position, transform.position) <= chaseRange)
+        if (Vector3.Distance(PlayerToChase.position, transform.position) <= chaseRange && !enemyAnimator.GetBool("die"))
         {
             chaseDirection = PlayerToChase.position - transform.position;
             isChasing = true;
             Utility.EnemyFacingDirection(transform, PlayerToChase, 1f);
         }
-        else if ((Vector3.Distance(PlayerToChase.position, transform.position) <= keepChasingRange) && isChasing) {
+        else if ((Vector3.Distance(PlayerToChase.position, transform.position) <= keepChasingRange) && isChasing && !enemyAnimator.GetBool("die")) {
             chaseDirection = PlayerToChase.position - transform.position;
             Utility.EnemyFacingDirection(transform, PlayerToChase, 1f);
         }
