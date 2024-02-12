@@ -35,6 +35,20 @@ namespace Assets.Scripts
             }
         }
 
+        public static void EnemyFacingDirection(UnityEngine.Transform enemyTransform, UnityEngine.Transform playerTransform, float scale)
+        {
+
+
+            if (enemyTransform.position.x < playerTransform.position.x)
+            {
+                enemyTransform.localScale = new Vector3(-scale, scale, scale);
+            }
+            else
+            {
+                enemyTransform.localScale = new Vector3(scale, scale, scale);
+            }
+        }
+
 
         public static bool IsFacingLeft(UnityEngine.Transform objTransform)
         {

@@ -9,10 +9,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] Transform arrowPoint;
     [SerializeField] Slider bowPowerSlider;
     [SerializeField] Transform bowPowerSliderTransform;
-    
-
-    [Range(0, 10)]
-    [SerializeField] float bowPower = 10;
 
     [Range(0, 10)]
     [SerializeField] float maxBowCharge = 4;
@@ -90,8 +86,6 @@ public class PlayerAttack : MonoBehaviour
         {
             bowCharge = maxBowCharge;
         }
-
-        float arrowSpeed = bowCharge + bowPower;
 
         float angle = Utility.AngleTowardsMouse(arrowPoint.position);
         PlayerArrow arrow = Instantiate(arrowPrefab, arrowPoint.position, Quaternion.Euler(0, 0, angle)).GetComponent<PlayerArrow>();

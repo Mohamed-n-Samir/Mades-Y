@@ -7,6 +7,7 @@ public class PlayerArrow : MonoBehaviour
 {
 
     private float arrowSpeed = 30f;
+    private int arrowDamage = 15;
     private float distanceToLive = 0;
     private Rigidbody2D arrowRB;
     private Vector3 initPosition;
@@ -28,7 +29,7 @@ public class PlayerArrow : MonoBehaviour
 
         float distanceMoved = Vector3.Distance(initPosition, transform.position);
 
-        if(distanceMoved >= distanceToLive)
+        if (distanceMoved >= distanceToLive)
         {
             Destroy(gameObject);
         }
@@ -39,6 +40,9 @@ public class PlayerArrow : MonoBehaviour
     {
         float angle = Utility.AngleTowardsMouse(transform.position);
         Instantiate(arrowCollideEffectPrefab, transform.position, Quaternion.Euler(0, 0, angle));
+        if (collision.CompareTag("Enemy")){
+            collision.GetComponent<EnemyController>().TakeDamage(arrowDamage);
+        }
         Destroy(gameObject);
     }
 
