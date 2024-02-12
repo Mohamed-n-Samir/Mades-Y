@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerArrow : MonoBehaviour
 {
 
-    [SerializeField] float arrowSpeed = 30f;
+    private float arrowSpeed = 30f;
     private float distanceToLive = 0;
     private Rigidbody2D arrowRB;
     private Vector3 initPosition;
@@ -27,8 +27,7 @@ public class PlayerArrow : MonoBehaviour
 
 
         float distanceMoved = Vector3.Distance(initPosition, transform.position);
-        Debug.Log(distanceMoved);
-        Debug.Log(distanceToLive);
+
         if(distanceMoved >= distanceToLive)
         {
             Destroy(gameObject);

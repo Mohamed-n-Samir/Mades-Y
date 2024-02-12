@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovment : MonoBehaviour
 {
 
-    [SerializeField] int movementSpeed = 5;
+    private int movementSpeed = 10;
     [SerializeField] Rigidbody2D playerRigidbody;
 
     private Vector2 movementInput;

@@ -66,17 +66,6 @@ namespace Assets.Scripts
 
             }
 
-
-
-            //if (rollingInput != 0f)
-            //{
-            //    Debug.Log(11);
-            //    playerAnimator.SetBool("isRolling", true);
-            //}
-            //else
-            //{
-            //    playerAnimator.SetBool("isRolling", false);
-            //}
         }
 
     }
